@@ -1,38 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Discord Redirect</title>
+    <title>VISION | visionF9 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="VISION - Roblox External, Fortnite Cheat, and Temp Spoofer">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/"></script>
     <style>
         @font-face {
             font-family: 'Pix32';
             src: url('./fonts/Pix32.ttf') format('truetype');
         }
         body {
-            background: linear-gradient(135deg, #8B0000, #000000);
+            background: linear-gradient(135deg, #000000, #0a0a0a, #050505);
             min-height: 100vh;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            gap: 60px;
-            padding-top: 100px;
-            padding-bottom: 50px;
         }
         .title {
             font-family: 'Pix32', monospace;
-            background: linear-gradient(45deg, #FF0000, #DC143C, #B22222, #8B0000, #4B0082, #663399, #FF0000);
+            background: linear-gradient(45deg, #2d1b4e, #4B0082, #663399, #8A2BE2, #4B0082, #2d1b4e);
             background-size: 400% 400%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 80px;
+            font-size: clamp(60px, 8vw, 80px);
             z-index: 10;
             position: relative;
             text-align: center;
             margin: 0;
             animation: gradientShift 4s ease-in-out infinite;
+            text-shadow: 0 0 50px rgba(75, 0, 130, 0.8), 0 0 100px rgba(138, 43, 226, 0.4);
+        }
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        .purple-planet {
+            position: fixed;
+            top: -15%;
+            right: -15%;
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle at 30% 30%, #1a0b2e, #2d1b4e, #4B0082, #663399, #2d1b4e, #0d051a, #000000);
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: -10;
+            animation: planetRotate 100s linear infinite, planetGlow 8s ease-in-out infinite;
+            box-shadow: inset -100px -100px 200px rgba(0, 0, 0, 0.9), 0 0 400px rgba(75, 0, 130, 0.4), 0 0 800px rgba(138, 43, 226, 0.2);
+            will-change: transform;
+        }
+        .purple-planet::before {
+            content: '';
+            position: absolute;
+            top: -8%;
+            left: -8%;
+            width: 116%;
+            height: 116%;
+            border: 3px solid rgba(138, 43, 226, 0.4);
+            border-radius: 50%;
+            animation: ringRotate 40s linear infinite reverse;
+            will-change: transform;
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.6);
+        }
+        .purple-planet::after {
+            content: '';
+            position: absolute;
+            top: -3%;
+            left: -3%;
+            width: 106%;
+            height: 106%;
+            border: 2px solid rgba(186, 85, 211, 0.3);
+            border-radius: 50%;
+            animation: ringRotate 70s linear infinite;
+            will-change: transform;
+            box-shadow: 0 0 30px rgba(186, 85, 211, 0.4);
+        }
+        @keyframes planetGlow {
+            0%, 100% { box-shadow: inset -100px -100px 200px rgba(0, 0, 0, 0.9), 0 0 400px rgba(75, 0, 130, 0.4), 0 0 800px rgba(138, 43, 226, 0.2); }
+            50% { box-shadow: inset -100px -100px 200px rgba(0, 0, 0, 0.9), 0 0 500px rgba(75, 0, 130, 0.6), 0 0 1000px rgba(138, 43, 226, 0.3); }
+        }
+        @keyframes ringRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes planetRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         .title-text {
             animation: pulse 3s ease-in-out infinite;
@@ -60,10 +124,48 @@
             gap: 15px;
             margin-top: 130px;
         }
-        button {
-            background: rgba(255, 0, 0, 0.1);
+        .modern-button {
+            background: rgba(10, 10, 15, 0.95);
             color: white;
-            border: 2px solid rgba(255, 0, 0, 0.3);
+            border: 2px solid rgba(75, 0, 130, 0.4);
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 20px rgba(75, 0, 130, 0.3);
+        }
+        .modern-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: radial-gradient(75% 100% at 50% 0%, rgba(75, 0, 130, 0.8) 0%, rgba(75, 0, 130, 0) 75%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .modern-button:hover::before {
+            opacity: 1;
+        }
+        .modern-button:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 40px rgba(75, 0, 130, 0.6);
+            border-color: rgba(75, 0, 130, 0.8);
+        }
+        .modern-button span {
+            position: relative;
+            z-index: 10;
+        }
+        button {
+            background: rgba(128, 0, 128, 0.1);
+            color: white;
+            border: 2px solid rgba(128, 0, 128, 0.3);
             padding: 15px 50px;
             font-size: 18px;
             border-radius: 8px;
@@ -71,7 +173,7 @@
             transition: all 0.3s;
             z-index: 10;
             position: relative;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px rgba(128, 0, 128, 0.3);
             animation: float 4s ease-in-out infinite;
         }
         @keyframes float {
@@ -79,33 +181,23 @@
             50% { transform: translateY(-3px); }
         }
         button:hover {
-            background: rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+            background: rgba(128, 0, 128, 0.2);
+            box-shadow: 0 0 30px rgba(128, 0, 128, 0.6);
         }
-        .glow {
+        .star {
             position: fixed;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            width: 12px;
+            height: 12px;
+            background: rgba(138, 43, 226, 0.9);
             border-radius: 50%;
             pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 1;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+            animation: starFade 0.7s ease-out forwards;
         }
-        .ripple {
-            position: fixed;
-            width: 100px;
-            height: 100px;
-            border: 2px solid rgba(255, 0, 0, 0.3);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            animation: ripple 2s infinite;
-        }
-        @keyframes ripple {
-            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+        @keyframes starFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.3); }
         }
         .snowflake {
             position: fixed;
@@ -114,65 +206,7 @@
             pointer-events: none;
             z-index: 2;
         }
-        .qna {
-            margin-top: 110px;
-            width: 800px;
-            max-width: 90vw;
-        }
-        .qna-item {
-            background: rgba(139, 0, 0, 0.08);
-            border: 2px solid rgba(139, 0, 0, 0.3);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        .qna-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(139, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        }
-        .qna-question {
-            padding: 25px 30px;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            font-family: Arial, sans-serif;
-        }
-        .qna-question::after {
-            content: '+';
-            position: absolute;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            transition: transform 0.3s ease;
-        }
-        .qna-question.active::after {
-            transform: translateY(-50%) rotate(45deg);
-        }
-        .qna-question:hover {
-            background: rgba(139, 0, 0, 0.15);
-            box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.3);
-        }
-        .qna-answer {
-            padding: 0 30px;
-            color: rgba(255, 255, 255, 0.9);
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            font-size: 16px;
-            line-height: 1.6;
-            font-family: Arial, sans-serif;
-        }
-        .qna-answer.open {
-            max-height: 300px;
-            padding: 0 30px 25px 30px;
-        }
+
         .side-image {
             position: fixed;
             right: 20px;
@@ -188,10 +222,12 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(139, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 5, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(75, 0, 130, 0.2);
             padding: 15px 0;
             z-index: 20;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
         }
         .nav-links {
             display: flex;
@@ -207,8 +243,8 @@
             cursor: pointer;
         }
         .nav-link:hover, .nav-link.active {
-            background: rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            background: rgba(75, 0, 130, 0.3);
+            box-shadow: 0 0 15px rgba(75, 0, 130, 0.5);
         }
         .page {
             display: none;
@@ -218,6 +254,11 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+        }
+        #features.page, #pricing.page, #contact.page {
+            min-height: 100vh;
+            padding: 80px 20px 40px;
+            justify-content: flex-start;
         }
         .features-qna .qna-item {
             background: rgba(80, 0, 0, 0.8);
@@ -241,14 +282,14 @@
             margin-bottom: 8px;
         }
         .pricing-box {
-            background: rgba(139, 0, 0, 0.08);
-            border: 2px solid rgba(139, 0, 0, 0.3);
+            background: rgba(75, 0, 130, 0.08);
+            border: 2px solid rgba(75, 0, 130, 0.3);
             border-radius: 12px;
             padding: 30px;
             margin-top: 50px;
             width: 600px;
             max-width: 90vw;
-            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.4);
+            box-shadow: 0 8px 25px rgba(75, 0, 130, 0.4);
             backdrop-filter: blur(10px);
         }
         .pricing-box ul {
@@ -269,18 +310,33 @@
             justify-content: center;
         }
         .pricing-category {
-            background: rgba(139, 0, 0, 0.08);
-            border: 2px solid rgba(139, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            width: 250px;
-            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
+            background: transparent;
+            border: 3px solid rgba(75, 0, 130, 0.7);
+            border-radius: 8px;
+            padding: 30px;
+            width: 280px;
+            min-height: 200px;
+            box-shadow: 0 0 40px rgba(75, 0, 130, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+        .pricing-category:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 0 60px rgba(75, 0, 130, 0.8), inset 0 0 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(75, 0, 130, 1);
+            background: transparent;
         }
         .pricing-category h3 {
             color: white;
-            margin: 0 0 15px 0;
-            font-size: 20px;
+            margin: 0 0 20px 0;
+            font-size: 22px;
+            font-weight: 700;
         }
         .pricing-category ul {
             text-align: left;
@@ -305,174 +361,164 @@
         </div>
     </div>
     
-    <div class="glow" id="glow"></div>
-    <div class="ripple" id="ripple"></div>
+
+    <div class="purple-planet"></div>
 
     <div id="home" class="page active">
-        <h1 class="title">
-            <span class="title-text">VISION</span>
-        </h1>
-        <div class="buttons">
-            <button onclick="window.open('https://visionss.mysellauth.com/', '_blank')">Buy Now!</button>
-            <button onclick="window.open('https://discord.gg/ragebot', '_blank')">Join Discord</button>
-        </div>
-        
-        <div class="qna">
-            <div class="qna-item">
-                <div class="qna-question" onclick="toggleAnswer(0)">What is Vision?</div>
-                <div class="qna-answer" id="answer-0">Vision is a Roblox external, fornite cheese and a temp swoofer </div>
-            </div>
-            <div class="qna-item">
-                <div class="qna-question" onclick="toggleAnswer(1)">How much does it cost?</div>
-                <div class="qna-answer" id="answer-1">Pricing varies based on your needs. Contact us for details.</div>
-            </div>
-            <div class="qna-item">
-                <div class="qna-question" onclick="toggleAnswer(2)">what payment methods are accepted?</div>
-                <div class="qna-answer" id="answer-2">Bitcoin and Litecoin are accepted on the site but if you want to use any other crypto join the discord and open a ticket, other payments are held by resellers.</div>
+        <div class="hero-section">
+            <div class="relative z-10">
+                <h1 class="title">
+                    <span class="title-text">VISION</span>
+                </h1>
+                <p style="font-size: 18px; color: rgba(148, 163, 184, 1); margin-top: 16px; margin-bottom: 32px; max-width: 600px;"> straight cheats for Roblox, Fortnite, and a temp spoofer</p>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+                    <a href="https://visionss.mysellauth.com/" target="_blank" class="modern-button">
+                        <span>Buy Now</span>
+                        <svg fill="none" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.75 8.75L14.25 12L10.75 15.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                        </svg>
+                    </a>
+                    <a href="https://discord.gg/faking" target="_blank" class="modern-button">
+                        <span>Join Discord</span>
+                        <svg fill="none" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.75 8.75L14.25 12L10.75 15.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
     
     <div id="features" class="page">
-        <h2 style="color: white; font-size: 48px; margin-top: 100px;">Features</h2>
+        <h2 style="color: white; font-size: 56px; margin: 0 0 40px 0; background: linear-gradient(45deg, #4B0082, #8A2BE2, #BA55D3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 30px rgba(138, 43, 226, 0.5);">Features</h2>
+        <p style="color: rgba(255, 255, 255, 0.8); font-size: 20px; margin-bottom: 50px; max-width: 700px;"> shit thats actually ud </p>
         <div class="pricing-categories">
             <div class="pricing-category">
                 <h3>Roblox External</h3>
                 <ul>
-                    <li>aimbot</li>
-                    <li>esp</li>
-                    <li>exploits</li>
-                    <li>smooth performance</li>
-                    <li>etc.</li>
+                    <li>aimbot </li>
+                    <li>ESP </li>
+                    <li>configs </li>
+                    <li>cheap</li>
+                    <li>screen share proof</li>
                 </ul>
             </div>
             <div class="pricing-category">
                 <h3>Temp Spoofer</h3>
                 <ul>
-                    <li>hardware ID spoofing</li>
-                    <li>system protection</li>
-                    <li>temporary changes</li>
-                    <li>easy to use</li>
-                    <li>multiple platform support</li>
+                    <li>spoofs HWID</li>
+                    <li>cleans system</li>
+                    <li>changes until pc restart</li>
+                    <li>ud driver </li>
+                    <li>BE/EAC </li>
                 </ul>
             </div>
             <div class="pricing-category">
                 <h3>Fortnite Cheat</h3>
                 <ul>
-                    <li>aimbot</li>
-                    <li>esp</li>
-                    <li>exploits</li>
-                    <li>smooth performance</li>
-                    <li>etc.</li>
+                    <li>aimbot </li>
+                    <li>ESP </li>
+                    <li>exploits </li>
+                    <li>UD </li>
+                    <li>optimized </li>
                 </ul>
             </div>
         </div>
     </div>
     
     <div id="pricing" class="page">
-        <h2 style="color: white; font-size: 48px; margin-top: 100px;">Pricing</h2>
+        <h2 style="color: white; font-size: 56px; margin: 0 0 40px 0; background: linear-gradient(45deg, #4B0082, #8A2BE2, #BA55D3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 30px rgba(138, 43, 226, 0.5);">Pricing</h2>
+        <p style="color: rgba(255, 255, 255, 0.8); font-size: 20px; margin-bottom: 50px; max-width: 700px;">pick what u want </p>
         <div class="pricing-categories">
             <div class="pricing-category">
                 <h3>Roblox External</h3>
+                <div style="font-size: 24px; color: #8A2BE2; font-weight: bold; margin: 15px 0;">From $5/month</div>
                 <ul>
                     <li>Lifetime - $10</li>
                     <li>Monthly - $5</li>
                     <li>Undetected features</li>
                     <li>Regular updates</li>
+                    <li>ss proof</li>
                 </ul>
             </div>
             <div class="pricing-category">
                 <h3>Temp Spoofer</h3>
+                <div style="font-size: 24px; color: #8A2BE2; font-weight: bold; margin: 15px 0;">From $4/day</div>
                 <ul>
-                    <li>Lifetime - $60</li>
-                    <li>Monthly - $16 </li>
-                    <li>Weekly - $8 </li>
+                    <li>Lifetime - $100</li>
+                    <li>Monthly - $16</li>
+                    <li>Weekly - $8</li>
                     <li>Daily - $4</li>
-                    <li>hardware ID spoofing</li>
-                    <li>easy to use</li>
+                    <li>UD</li>
                 </ul>
             </div>
             <div class="pricing-category">
                 <h3>Fortnite Cheat</h3>
+                <div style="font-size: 24px; color: #8A2BE2; font-weight: bold; margin: 15px 0;">From $3/day</div>
                 <ul>
-                    <li>Lifetime - $320 </li>
-                    <li>Monthly - $30 </li>
-                    <li>Weekly - $7 </li>
-                    <li>Daily - $3 </li>
-                    <li>Advanced features</li>
-                    <li>Smooth performance</li>
+                    <li>Lifetime - $320</li>
+                    <li>Monthly - $30</li>
+                    <li>Weekly - $7</li>
+                    <li>Daily - $3</li>
+                    <li>UD</li>
                 </ul>
             </div>
         </div>
-        <button onclick="window.open('https://visionss.mysellauth.com/', '_blank')" style="margin-top: 30px;">View Store</button>
+        <a href="https://visionss.mysellauth.com/" target="_blank" class="modern-button" rel="noopener" style="margin-top: 40px; padding: 16px 32px; font-size: 18px;">
+            <span>Purchase Now</span>
+            <svg fill="none" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.75 8.75L14.25 12L10.75 15.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+            </svg>
+        </a>
     </div>
     
     <div id="contact" class="page">
-        <h2 style="color: white; font-size: 48px; margin-top: 100px;">Contact</h2>
-        <div style="color: white; max-width: 800px;">
-            <p>Join our Discord for support and updates</p>
-            <button onclick="window.open('https://discord.gg/ragebot', '_blank')">Join Discord</button>
+        <h2 style="color: white; font-size: 56px; margin: 0 0 40px 0; background: linear-gradient(45deg, #4B0082, #8A2BE2, #BA55D3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 30px rgba(138, 43, 226, 0.5);">Support</h2>
+        <div style="color: white; max-width: 800px; text-align: center;">
+            <p style="font-size: 20px; color: rgba(255, 255, 255, 0.8); margin-bottom: 40px;">Need help? Join the Discord</p>
+            <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                <a href="https://discord.gg/faking" target="_blank" class="modern-button" rel="noopener" style="padding: 16px 32px; font-size: 18px;">
+                    <span>Join Discord</span>
+                    <svg fill="none" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.75 8.75L14.25 12L10.75 15.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                    </svg>
+                </a>
+                <div style="display: flex; gap: 40px; margin-top: 40px; flex-wrap: wrap; justify-content: center;">
+                    <div style="text-align: center;">
+                        <div style="font-weight: 600; margin-bottom: 8px; font-size: 18px;">Fast Response</div>
+                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 14px;">Quick support when you need it</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-weight: 600; margin-bottom: 8px; font-size: 18px;">Regular Updates</div>
+                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 14px;">Stay current with new features</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-weight: 600; margin-bottom: 8px; font-size: 18px;">Active Community</div>
+                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 14px;">Connect with other users</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script>
-        let glow = document.getElementById('glow');
-        let ripple = document.getElementById('ripple');
-        let currentX = 0, currentY = 0;
-        let targetX = 0, targetY = 0;
-        
+        let lastStarTime = 0;
         document.addEventListener('mousemove', (e) => {
-            targetX = e.clientX;
-            targetY = e.clientY;
-        });
-        
-        function lerp(start, end, factor) {
-            return start + (end - start) * factor;
-        }
-        
-        function updateGlow() {
-            currentX = lerp(currentX, targetX, 0.1);
-            currentY = lerp(currentY, targetY, 0.1);
-            glow.style.left = currentX + 'px';
-            glow.style.top = currentY + 'px';
-            ripple.style.left = currentX + 'px';
-            ripple.style.top = currentY + 'px';
-            requestAnimationFrame(updateGlow);
-        }
-        updateGlow();
-        
-        function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            snowflake.innerHTML = '❄';
-            snowflake.style.left = Math.random() * window.innerWidth + 'px';
-            snowflake.style.top = '-20px';
-            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
-            document.body.appendChild(snowflake);
-            
-            let pos = -20;
-            const speed = Math.random() * 2 + 1;
-            
-            function fall() {
-                pos += speed;
-                snowflake.style.top = pos + 'px';
-                if (pos < window.innerHeight + 20) {
-                    requestAnimationFrame(fall);
-                } else {
-                    snowflake.remove();
-                }
+            const now = Date.now();
+            if (now - lastStarTime > 50) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = (e.clientX - 6) + 'px';
+                star.style.top = (e.clientY - 6) + 'px';
+                document.body.appendChild(star);
+                
+                setTimeout(() => {
+                    star.remove();
+                }, 700);
+                lastStarTime = now;
             }
-            fall();
-        }
-        
-        setInterval(createSnowflake, 200);
-        
-        function toggleAnswer(index) {
-            const answer = document.getElementById(`answer-${index}`);
-            const question = answer.previousElementSibling;
-            answer.classList.toggle('open');
-            question.classList.toggle('active');
-        }
-        
+        });
+
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
